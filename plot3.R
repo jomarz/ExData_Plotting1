@@ -7,6 +7,9 @@ febdata$Sub_metering_3 <- as.numeric(as.character(febdata$Sub_metering_3))
 febdata$Sub_metering_2 <- as.numeric(as.character(febdata$Sub_metering_2))
 febdata$Sub_metering_1 <- as.numeric(as.character(febdata$Sub_metering_1))
 
+##create new column for datetime combined data
+febdata$datetime<-as.POSIXct(paste(febdata$Date,febdata$Time), format="%d/%m/%Y %H:%M:%S")
+
 ## Plot
 plot(febdata$datetime, febdata$Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
 lines(febdata$datetime, febdata$Sub_metering_2, type="l", col="red")
